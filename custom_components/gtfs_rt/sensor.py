@@ -23,6 +23,7 @@ ATTR_ICON = "Icon"
 
 CONF_API_KEY = "api_key"
 CONF_X_API_KEY = "x_api_key"
+CONF_API_KEY_HEADER_NAME = "api_key_header"
 CONF_STOP_ID = "stopid"
 CONF_ROUTE = "route"
 CONF_DIRECTION_ID = "directionid"
@@ -273,13 +274,14 @@ class PublicTransportData(object):
         route_delimiter=None,
         api_key=None,
         x_api_key=None,
+        api_key_header="Authorization",
     ):
         """Initialize the info object."""
         self._trip_update_url = trip_update_url
         self._vehicle_position_url = vehicle_position_url
         self._route_delimiter = route_delimiter
         if api_key is not None:
-            self._headers = {"Authorization": api_key}
+            self._headers = {api_key_header: api_key}
         elif x_api_key is not None:
             self._headers = {"x-api-key": x_api_key}
         else:
