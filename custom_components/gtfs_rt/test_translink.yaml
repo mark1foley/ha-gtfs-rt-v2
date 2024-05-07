@@ -1,6 +1,6 @@
 trip_update_url: 'https://data-exchange-api.vicroads.vic.gov.au/opendata/gtfsr/v1/tram/tripupdates'
 vehicle_position_url: 'https://data-exchange-api.vicroads.vic.gov.au/opendata/gtfsr/v1/tram/vehicleposition'
-ocp_apim_subscription_key: 'd317a7058099484c8a76748707d2ca28'
+ocp_apim_subscription_key: 'xxx'
 route_delimiter: '-'
 departures:
 - name: 'Home'
