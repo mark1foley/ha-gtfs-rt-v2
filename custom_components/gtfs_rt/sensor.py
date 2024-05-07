@@ -37,6 +37,7 @@ CONF_SERVICE_TYPE = "service_type"
 DEFAULT_SERVICE = "Service"
 DEFAULT_ICON = "mdi:bus"
 DEFAULT_DIRECTION = "0"
+DEFAULT_API_KEY_HEADER_NAME = 'Authorization'
 
 MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=60)
 TIME_STR_FORMAT = "%H:%M"
@@ -46,6 +47,10 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_TRIP_UPDATE_URL): cv.string,
         vol.Optional(CONF_API_KEY): cv.string,
         vol.Optional(CONF_X_API_KEY): cv.string,
+        vol.Optional(
+            CONF_API_KEY_HEADER_NAME,
+            default=DEFAULT_API_KEY_HEADER_NAME, # type: ignore
+        ): cv.string,
         vol.Optional(CONF_VEHICLE_POSITION_URL): cv.string,
         vol.Optional(CONF_ROUTE_DELIMITER): cv.string,
         vol.Optional(CONF_DEPARTURES): [
@@ -56,7 +61,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
                 vol.Optional(
                     CONF_DIRECTION_ID,
                     default=DEFAULT_DIRECTION,  # type: ignore
-                ): str,
+                ): cv.string,
                 vol.Optional(
                     CONF_ICON, default=DEFAULT_ICON  # type: ignore
                 ): cv.string,
@@ -102,6 +107,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         config.get(CONF_ROUTE_DELIMITER),
         config.get(CONF_API_KEY),
         config.get(CONF_X_API_KEY),
+        config.get(CONF_API_KEY_HEADER_NAME),
     )
     sensors = []
     for departure in config.get(CONF_DEPARTURES):
