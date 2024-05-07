@@ -23,7 +23,7 @@ ATTR_ICON = "Icon"
 
 CONF_API_KEY = "api_key"
 CONF_X_API_KEY = "x_api_key"
-CONF_API_KEY_HEADER_NAME = "Authorization"
+CONF_API_KEY_HEADER_NAME = "api_key_header"
 CONF_STOP_ID = "stopid"
 CONF_ROUTE = "route"
 CONF_DIRECTION_ID = "directionid"
