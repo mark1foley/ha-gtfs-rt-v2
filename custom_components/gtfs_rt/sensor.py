@@ -280,7 +280,7 @@ class PublicTransportData(object):
         route_delimiter=None,
         api_key=None,
         x_api_key=None,
-        api_key_header="Authorization",
+        api_key_header=None,
     ):
         """Initialize the info object."""
         self._trip_update_url = trip_update_url
