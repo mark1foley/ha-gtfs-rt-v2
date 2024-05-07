@@ -23,6 +23,7 @@ ATTR_ICON = "Icon"
 
 CONF_API_KEY = "api_key"
 CONF_X_API_KEY = "x_api_key"
+CONF_OCP_APIM_SUBSCRIPTION_KEY= 'ocp_apim_subscription_key'
 CONF_STOP_ID = "stopid"
 CONF_ROUTE = "route"
 CONF_DIRECTION_ID = "directionid"
@@ -45,6 +46,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_TRIP_UPDATE_URL): cv.string,
         vol.Optional(CONF_API_KEY): cv.string,
         vol.Optional(CONF_X_API_KEY): cv.string,
+        vol.Optional(CONF_OCP_APIM_SUBSCRIPTION_KEY): cv.string,
         vol.Optional(CONF_VEHICLE_POSITION_URL): cv.string,
         vol.Optional(CONF_ROUTE_DELIMITER): cv.string,
         vol.Optional(CONF_DEPARTURES): [
@@ -101,6 +103,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         config.get(CONF_ROUTE_DELIMITER),
         config.get(CONF_API_KEY),
         config.get(CONF_X_API_KEY),
+        config.get(CONF_OCP_APIM_SUBSCRIPTION_KEY),
     )
     sensors = []
     for departure in config.get(CONF_DEPARTURES):
@@ -273,6 +276,8 @@ class PublicTransportData(object):
         route_delimiter=None,
         api_key=None,
         x_api_key=None,
+        ocp_apim_subscription_key=None,
+
     ):
         """Initialize the info object."""
         self._trip_update_url = trip_update_url
@@ -282,6 +287,8 @@ class PublicTransportData(object):
             self._headers = {"Authorization": api_key}
         elif x_api_key is not None:
             self._headers = {"x-api-key": x_api_key}
+        elif ocp_apim_subscription_key is not None:
+            self._headers = {"Ocp-Apim-Subscription-Key": ocp_apim_subscription_key}
         else:
             self._headers = None
         self.info = {}

@@ -1,7 +1,12 @@
-trip_update_url: 'https://gtfsrt.api.translink.com.au/api/realtime/SEQ/TripUpdates'
-vehicle_position_url: 'https://gtfsrt.api.translink.com.au/api/realtime/SEQ/VehiclePositions'
+trip_update_url: 'https://data-exchange-api.vicroads.vic.gov.au/opendata/gtfsr/v1/tram/tripupdates'
+vehicle_position_url: 'https://data-exchange-api.vicroads.vic.gov.au/opendata/gtfsr/v1/tram/vehicleposition'
+ocp_apim_subscription_key: 'd317a7058099484c8a76748707d2ca28'
 route_delimiter: '-'
 departures:
-- name: 'Ferny Grove Train'
-  route: BNFG
-  stopid: '600195'
+- name: 'Home'
+  route: "3-70-mjp-1"
+  stopid: "19431"
+  directionid: "0"
+  icon: mdi:tram
+  service_type: Tram
+

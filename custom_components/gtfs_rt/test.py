@@ -24,6 +24,7 @@ from sensor import (
     CONF_TRIP_UPDATE_URL,
     CONF_VEHICLE_POSITION_URL,
     CONF_X_API_KEY,
+    CONF_OCP_APIM_SUBSCRIPTION_KEY,
     DEFAULT_DIRECTION,
     DEFAULT_ICON,
     DEFAULT_SERVICE,
@@ -41,6 +42,7 @@ PLATFORM_SCHEMA = Schema(
         CONF_TRIP_UPDATE_URL: str,
         Optional(CONF_API_KEY): str,
         Optional(CONF_X_API_KEY): str,
+        Optional(CONF_OCP_APIM_SUBSCRIPTION_KEY): str,
         Optional(CONF_VEHICLE_POSITION_URL): str,
         Optional(CONF_ROUTE_DELIMITER): str,
         CONF_DEPARTURES: [
@@ -102,6 +104,7 @@ if __name__ == "__main__":
             configuration.get(CONF_ROUTE_DELIMITER),
             configuration.get(CONF_API_KEY, None),
             configuration.get(CONF_X_API_KEY, None),
+            configuration.get(CONF_OCP_APIM_SUBSCRIPTION_KEY, None),
         )
 
         sensors = []
