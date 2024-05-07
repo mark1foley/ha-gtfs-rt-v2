@@ -68,7 +68,7 @@ Configuration variables:
 
 - **trip_update_url** (*Required*): Provides route etas. See the **Finding Feeds** section at the bottom of the page for more details on how to find these
 - **vehicle_position_url** (*Optional*): Provides live position tracking on the home assistant map
-- **api_header_key** (*Optional*): If provided, this key will be included in the header, along with the api_key value. In not provided, the default on "Authorization" will be used (only if and api_key value is also given)
+- **api_header_key** (*Optional*): If provided, this key will be included in the header, along with the api_key value. In not provided, the default of "Authorization" will be used (only if and api_key value is also given)
 - **api_key** (*Optional*): If provided, this key will be sent with API requests in an "Authorization" header.
 - **x_api_key** (*Optional*): If provided, this key will be sent with API requests in an "x_api_key" header.  Being maintained for legacy support only as it could also be specified in the api_header_key value
 - **route_delimiter** (*Optional*): If provided, the text in the feed's route id before the delimiter is used as the route id.  Useful if the provider incorporates calendar ids into their route ids.1
