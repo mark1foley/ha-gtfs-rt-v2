@@ -97,6 +97,7 @@ As it can be time-consuming performing troubleshooting in Home Assistant, a test
 
 Usage:
 ```
+pip install -r test_requirments.txt
 test.py -f <yaml file> -d INFO|DEBUG { -l <outfile log file> }
 ```
 

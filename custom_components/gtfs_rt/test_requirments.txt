@@ -1,0 +1,5 @@
+voluptuous
+homeassistant
+pyyaml
+schema
+gtfs-realtime-bindings
